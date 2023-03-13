@@ -1,6 +1,24 @@
 import { apiClient } from "../../axios-config";
+import { USE_API } from "../../../core/fake-api/config";
+import { login as fakeLogin } from "../../../core/fake-api/auth";
 
-const login = (email, password) => {
+/*
+    *Dispatcher = (args) => {
+        if (!USE_API) {
+            return entry1(args)
+        }
+        return entry2(args)
+    }
+*/
+
+const loginDispatcher = (email, password) => {
+    if (!USE_API) {
+        return fakeLogin(email,password)
+    }
+    return realLogin(email,password)
+}
+
+const realLogin = (email, password) => {
     return apiClient.post('user/login', {
         "email": email,
         "password": password
@@ -23,7 +41,7 @@ const sendForgetPasswordEmail = (email) => {
 }
 
 const AuthRepo = {
-    login: login,
+    login: loginDispatcher,
     register: register,
     sendForgetPasswordEmail: sendForgetPasswordEmail,
 }

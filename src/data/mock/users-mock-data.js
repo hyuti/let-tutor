@@ -1,7 +1,7 @@
 const usersData = new Map().set('Admin', {
     email: 'admin@gmail.com',
     username: 'Admin',
-    password: '123456',
+    password: '12345678',
     fullName: 'Administrator',
     phone: '+84282828485',
     token: 'empty',

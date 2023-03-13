@@ -1,12 +1,12 @@
+import usersData from "../../data/mock/users-mock-data";
 export const login = (username, password) => {
-    if (username === 'admin' && password == '123456') {
+    if (username === 'admin' && password == '12345678') {
         return {
             status: 200,
-            user: {
-                username: username,
+            data:{
                 token: 'empty',
-                fullName: 'Administrator'
-            }
+                userInfo:usersData.get("Admin")
+            },
         };
     } else {
         return { status: 404 };

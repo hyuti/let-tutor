@@ -1,11 +1,7 @@
-import {
-    DO_GET_TOTAL_NUMER_COURSES_COURSE_ACTION, DO_GET_TOP_NEW_COURSE_ACTION,
-    DO_SEARCH_COURSE_COURSE_ACTION,
-    DO_GET_FAVOURITES_COURSE_ACTION
-} from "./actions"
 import { Status } from '../../core/status'
+import { newCourses,coursesData } from "../../data/mock/courses-mock-data"
 
-export const courseState = () => {
+const courseState = () => {
     return {
         totalNumerCourses: 0,
         status: {
@@ -26,8 +22,9 @@ export const courseState = () => {
         currentCourseId: '',
         continuesLearningIds: [],
         myCourses: {
-
         },
         videoUrl: '',
     }
 }
+
+export {courseState}

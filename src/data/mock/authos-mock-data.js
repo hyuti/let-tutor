@@ -1,7 +1,7 @@
-import { coursesData } from './courses-mock-data';
+import { data } from './courses-mock-data';
 import { DataType } from '../../core/data/data-type';
 
-const courseIds = Array.from(coursesData.keys())
+const courseIds = Array.from(data.keys())
 
 const authorsData = new Map(Array(20).fill(1).map((value, index) => {
     var id = `${index}`;

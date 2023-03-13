@@ -7,8 +7,20 @@ import {
     SET_ADD_MY_COURSES_COURSE_ACTION,
     SET_CURRENT_VIDEO_MP4_COURSE_ACTION
 } from "./actions";
+import USE_API from "../../core/fake-api/config"
+import { newCourses,coursesData } from "../../data/mock/courses-mock-data"
 
 export const courseReducer = (courseState, action) => {
+    if (!USE_API){
+        return {
+            ...courseState,
+            courses:coursesData,
+            topNewCourses:newCourses,
+            topSellCourses: newCourses,
+            topRateCourses: newCourses,
+            recommendCourses: newCourses,
+        }
+    }
     switch (action.type) {
         case SET_CURRENT_VIDEO_MP4_COURSE_ACTION:
             return {

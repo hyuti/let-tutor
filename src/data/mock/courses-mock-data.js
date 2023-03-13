@@ -25,7 +25,7 @@ const mockCourseType = (index) => {
 }
 
 
-const coursesData = new Map(Array(204).fill(1).map((value, index) => {
+const data= new Map(Array(204).fill(1).map((value, index) => {
     var id = `${Date.now()}${index}`;
     const courseName = `Angular Fundamentals  ${index}`
     const listAuthor = ['1', '2', '3']
@@ -44,9 +44,16 @@ const coursesData = new Map(Array(204).fill(1).map((value, index) => {
         "introduce": courseName + " Angular 9 simply is the latest version of Angular 2, you will learn this amazing framework from the ground up in this course!",
     }]
 }));
+const coursesData=function(){
+    d={}
+    data.forEach((k,v)=>{
+        d[k]=v
+    })
+    return 
+}()
 
-const newCourses = Array.from(coursesData.keys()).slice(0, 20);
+const newCourses = Array.from(data.keys()).slice(0, 1);
 
-const recommendedCourses = Array.from(coursesData.keys()).slice(30, 50);
+const recommendedCourses = Array.from(data.keys()).slice(30, 50);
 
 export { CourseType, coursesData, newCourses, recommendedCourses }

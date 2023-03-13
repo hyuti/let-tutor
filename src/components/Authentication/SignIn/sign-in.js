@@ -125,9 +125,7 @@ const SignIn = (props) => {
                         loading={loginStatus.loadStatus === LoadStatus.loading}
                         disabled={false} />
                     <SizedBox height={Sizes.s12} />
-                    <CButton title={i18n.t('sign_up').toUpperCase()} onPress={onPressedSignUp} type='outline' style={styles.signUp} loading={false} disabled={false} />
                     <SizedBox height={Sizes.s24} />
-                    <CButton title={i18n.t('forgot_password').toUpperCase()} onPress={onPressedForgotPassword} type='clear' style={styles.forgotPassword} loading={false} disabled={false} color={Colors.transparent} />
                 </View>
             </CScrollView>
         </ScreenContainer>
