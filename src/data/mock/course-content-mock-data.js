@@ -1,8 +1,30 @@
+import { CourseType } from "./courses-mock-data"
+
 const courseContentData = [
     {
         id: '15896172545531',
         name: 'Course Introduction',
+        title: 'Course Introduction',
+        courseTitle: 'Course Introduction',
+        image: "https://picsum.photos/700",
+        imageUrl: "https://picsum.photos/700",
+        courseImage: "https://picsum.photos/700",
         length: '2:1',
+        totalHours: "2:1",
+        level: "Intermediate",
+        rating: 4.4,
+        ratingCount: 3,
+        ratedNumber: 3,
+        soldNumber: 3,
+        teachers: "Joe Eames, +4",
+        instructorName:"Joe Eames",
+        type: CourseType.DATA_PROFESSIONAL,
+        authors: ['1', '2', '3'],
+        introduce: "Angular 9 simply is the latest version of Angular 2, you will learn this amazing framework from the ground up in this course!",
+        coursePrice:"$100",
+        coursePrice:"$100",
+        process:"In-progress",
+        latestLearnTime:Date.now(),
     },
 
 

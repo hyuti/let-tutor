@@ -71,12 +71,6 @@ const Home = ({ props }) => {
                     {buildContinueLearning(i18n.t('continue_learning'), courseState.continuesLearningIds)}
                     {buildSectionCourses(i18n.t('recommend_for_you'), courseState.recommendCourses, recommendCoursesStatus?.loadStatus)}
                     <SizedBox height={Sizes.s12} />
-                    {buildSectionCourses(i18n.t('top_new_courses'), courseState.topNewCourses, topNewStatus?.loadStatus)}
-                    <SizedBox height={Sizes.s12} />
-                    {buildSectionCourses(i18n.t('top_sell_courses'), courseState.topSellCourses, topSellStatus?.loadStatus)}
-                    <SizedBox height={Sizes.s12} />
-                    {buildSectionCourses(i18n.t('top_rate_courses'), courseState.topRateCourses, topRateStatus?.loadStatus)}
-                    <SizedBox height={Sizes.s160} />
                 </View>
             </CScrollView>
         </ContentContainer>

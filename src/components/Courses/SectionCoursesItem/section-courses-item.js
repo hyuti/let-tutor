@@ -13,9 +13,10 @@ const SectionCourseItem = ({ course, onPress }) => {
             <COpacityButton onPress={onPress}>
                 <CCard>
                     <View style={{ width: 260, height: 220 }}>
-                        <CImage uri={course.imageUrl} style={styles.image} />
+                        <ContentContainer style={{alignItems:"center"}}>
+                            <CImage uri={course.imageUrl} style={styles.image} />
+                        </ContentContainer>
                         <ContentContainer
-
                             style={styles.infoContainer}>
                             <SectionCourseItemInfo course={course}
                                 simple={false} />
@@ -32,6 +33,8 @@ export default SectionCourseItem
 const styles = StyleSheet.create({
     image: {
         height: Sizes.s96,
+        width:Sizes.s96,
+        borderRadius:Sizes.s96/2,
     },
     infoContainer: {
         padding: Sizes.s8,

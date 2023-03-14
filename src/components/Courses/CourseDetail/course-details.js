@@ -44,69 +44,46 @@ import { ActivityIndicator } from 'react-native-paper'
 const Tab = createMaterialTopTabNavigator()
 
 const CourseDetail = ({ route, navigator }) => {
-
     var courseId = route.params.courseId
-
     const courseState = useSelector(state => state.courseState)
-
     var allCourses = courseState.courses;
-
     const course = allCourses[courseId]
-
     const [currentVideoUri, setCurrentVideoUri] = useState(course?.promoVidUrl ?? '')
-
     const dispatch = useDispatch();
-
     const [status, setStatus] = useState(Status.idle())
-
     const [getVideoUrl, setGetVideoUrl] = useState(Status.idle())
-
     useEffect(() => {
-
+        console.log(courseState.status[`${DO_GET_COURSE_DETAIL_COURSE_ACTION}${courseId}`])
         setStatus(courseState.status[`${DO_GET_COURSE_DETAIL_COURSE_ACTION}${courseId}`])
         setGetVideoUrl(courseState.status[`${DO_GET_COURSE_LESSON_VIDEO_COURSE_ACTION}`])
-
         return () => {
             //dispatch(DoGetMyCoursesCourseAction())
         }
     }, [courseState])
-
-
     const themeContext = useContext(ThemeContext)
-
     const theme = themeContext.theme
-
     const onShare = (course) => {
         ShareUtils.share({ message: course.title })
     }
-
     const onTapLessonItem = (lesson) => {
         setCurrentVideoUri(lesson.videoUrl)
         if (lesson.videoName?.includes('.mp4') || lesson.videoName?.includes('.mov')) {
             dispatch(DoGetCourseLessonVideoCourseAction(course.id, lesson.id))
         }
     }
-
     const CourseOverview = () => {
         var instructor = course.instructor;
-
         const stars = course?.ratings?.stars ?? [];
-
         var totalScore = 0.0;
-
         var totalPeople = 0;
-
         var averageScore = 0.0;
-
         stars.forEach((peoplesInt, index) => {
             totalScore += peoplesInt * (index + 1)
             totalPeople += peoplesInt
         })
-
         if (stars.length > 0) {
             averageScore = totalScore / totalPeople;
         }
-
         return (
             <ScreenContainer>
                 <CScrollView
@@ -214,7 +191,6 @@ const CourseDetail = ({ route, navigator }) => {
                         contentContainerStyle: { backgroundColor: theme.tabColor },
                         activeTintColor: theme.textColor,
                         inactiveTintColor: theme.textColor,
-                        //labelStyle: TextStyles.smallTab
                     }}>
                     <Tab.Screen
                         name={Routes.CourseTranscript}
@@ -222,17 +198,12 @@ const CourseDetail = ({ route, navigator }) => {
                         options={{ title: i18n.t('overview') }} />
                     <Tab.Screen
                         name={Routes.CourseContent}
-                        //component={CourseContent}
                         children={() => <CourseContent onTapItem={onTapLessonItem} />}
                         options={{ title: i18n.t('contents') }} />
                     <Tab.Screen
                         name={Routes.CourseRatingTab}
                         children={() => <CourseRatingTab />}
                         options={{ title: i18n.t('rating') }} />
-                    {/* <Tab.Screen
-                        name={Routes.CourseAssignmentTab}
-                        children={() => <CourseAssignmentTab />}
-                        options={{ title: i18n.t('assignment') }} /> */}
                 </Tab.Navigator>
             </View>
         )

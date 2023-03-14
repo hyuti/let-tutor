@@ -12,7 +12,7 @@ import { newCourses,coursesDataNotMapObj,favCourses } from "../../data/mock/cour
 
 export const courseReducer = (courseState, action) => {
     if (!USE_API){
-        return {
+        courseState= {
             ...courseState,
             courses:coursesDataNotMapObj,
             topNewCourses:newCourses,

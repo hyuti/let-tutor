@@ -11,11 +11,8 @@ import COpacityButton from '../../Common/Button/c-opacity-button'
 
 const CourseContent = ({ onTapItem }) => {
     const courseState = useSelector(state => state.courseState)
-
     const course = courseState.courses[courseState.currentCourseId]
-
     const sections = course.section ?? []
-
     const DATA = sections.map((section, index, array) => {
         return {
             title: section.name,

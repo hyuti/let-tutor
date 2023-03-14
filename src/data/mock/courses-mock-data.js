@@ -50,9 +50,14 @@ const coursesData= new Map(Array(3).fill(1).map((value, index) => {
         "type": mockCourseType(index),
         "authors": listAuthor,
         "introduce": courseName + " Angular 9 simply is the latest version of Angular 2, you will learn this amazing framework from the ground up in this course!",
-        "coursePrice":"$100",
+        "coursePrice":"100.000",
+        "price":"100.000",
         "process":"In-progress",
         "latestLearnTime":Date.now(),
+        "videoNumber":10,
+        "requirement":"Lorem ipsum",
+        "learnWhat":"Lorem ipsum",
+        "coursesLikeCategory":[id]
     }]
 }));
 const coursesDataNotMapObj=function(){

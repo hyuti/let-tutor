@@ -34,11 +34,8 @@ export const SectionCoursesByIds = ({ style, headerText, courseIds }) => {
                     course={course}
                     onPress={() => {
                         dispatch(SetCurrentCourseIdCourseAction(course.id))
-
                         dispatch(DoGetCourseDetailCourseAction(course.id, authState.userInfo.id))
-                        
                         dispatch(SetAddContinuesLearningCourseAction(course.id))
-
                         RootNavigation.navigate(Routes.CourseDetail, {
                             courseId: course.id
                         })

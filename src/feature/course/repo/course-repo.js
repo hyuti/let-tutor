@@ -1,4 +1,6 @@
 import { apiClient } from "../../axios-config"
+import { USE_API } from "../../../core/fake-api/config";
+import { getCourseDetail as fakeGetCourseDetail } from "../../../core/fake-api/course";
 
 const getTotalNumerCourses = () => {
     return apiClient.get('course/total-number');
@@ -26,8 +28,10 @@ const getTopRateCourses = () => {
 }
 
 const getCourseDetail = (courseId, userId) => {
+    if (!USE_API){
+        return fakeGetCourseDetail(courseId,userId)  
+    }
     return apiClient.get(`course/get-course-detail/${courseId}/${userId}`, {
-
     });
 }
 

@@ -17,9 +17,7 @@ import MeScreen from './MyCourses/me-screen';
 const Tab = createBottomTabNavigator()
 
 const MainScreen = () => {
-
     const themeContext = useContext(ThemeContext)
-
     const theme = themeContext.theme
 
     return (
