@@ -1,5 +1,5 @@
 export const DataType = {
-    Course: 'Course',
+    Tutor: 'Tutor',
     Path: 'Path',
     Author: 'Author',
 }

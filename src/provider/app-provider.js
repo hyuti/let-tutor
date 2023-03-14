@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from './theme-provider';
-import { CoursesProvider } from './courses-provider'
+import { TutorsProvider } from './tutors-provider'
 import { FavouritesProvider } from './favourites-provider';
 import { SkillsProvider } from './skills-provider';
 import { AuthorsProvider } from './authors-provider';
@@ -16,7 +16,7 @@ const AppProvider = (props) => {
         <StoreProvider store={store}>
             <AppContext.Provider>
                 <ThemeProvider>
-                    <CoursesProvider>
+                    <TutorsProvider>
                         <FavouritesProvider>
                             <SkillsProvider>
                                 <AuthorsProvider>
@@ -28,7 +28,7 @@ const AppProvider = (props) => {
                                 </AuthorsProvider>
                             </SkillsProvider>
                         </FavouritesProvider>
-                    </CoursesProvider>
+                    </TutorsProvider>
                 </ThemeProvider>
             </AppContext.Provider>
         </StoreProvider>

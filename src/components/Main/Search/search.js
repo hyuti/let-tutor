@@ -10,10 +10,10 @@ import ScreenContainer from '../../Common/Screen/screen-container'
 import { ThemeContext } from '../../../provider/theme-provider'
 import { useSelector, useDispatch } from 'react-redux'
 import { Status, LoadStatus } from '../../../core/status'
-import { DO_SEARCH_COURSE_COURSE_ACTION, DoSearchCourseCourseAction } from '../../../feature/course/actions'
+import { DO_SEARCH_TUTOR_TUTOR_ACTION, DoSearchTutorTutorAction } from '../../../feature/tutor/actions'
 import CLoadingIndicator from '../../Common/Animations/c_loading_indicator'
 import ErrorText from '../../Common/error/error-text'
-import ListCourses from '../../Courses/ListCourses/list-courses'
+import ListTutors from '../../Tutors/ListTutors/list-tutors'
 import { Dropdown } from 'react-native-material-dropdown-v2'
 import Colors from '../../../res/colors'
 import { View } from 'react-native'
@@ -22,7 +22,7 @@ import SizedBox from '../../Common/Container/sized-box'
 
 
 const Search = () => {
-    const courseState = useSelector(state => state.courseState)
+    const tutorState = useSelector(state => state.tutorState)
     const dispatch = useDispatch();
     const [searchStatus, setSearchStatus] = useState(Status.idle())
     const [currentKeyword, setCurrentKeyword] = useState('')
@@ -30,16 +30,16 @@ const Search = () => {
     const [curDate,setCurDate]=useState(new Date().toString())
 
     useEffect(() => {
-        setSearchStatus(courseState.status[DO_SEARCH_COURSE_COURSE_ACTION])
+        setSearchStatus(tutorState.status[DO_SEARCH_TUTOR_TUTOR_ACTION])
         return () => {}
-    }, [courseState])
+    }, [tutorState])
 
     const themeContext = useContext(ThemeContext)
     const theme = themeContext.theme
     const [searching, setSearching] = useState(undefined)
 
     function search(keyword) {
-        dispatch(DoSearchCourseCourseAction(keyword))
+        dispatch(DoSearchTutorTutorAction(keyword))
     }
     function onPressDone() {
         search(currentKeyword)
@@ -50,18 +50,18 @@ const Search = () => {
 
         return loadStatus === LoadStatus.loading ? <CLoadingIndicator /> :
             loadStatus === LoadStatus.error ? <ErrorText text={searchStatus.message} /> :
-                buildCourses()
+                buildTutors()
     }
-    const buildCourses = () => {
-        if(courseState.searchResults.length == 0)
+    const buildTutors = () => {
+        if(tutorState.searchResults.length == 0)
         return (
             <SearchGuideScreen
             title={i18n.t('not_found')}
             />
         )
         return (
-            <ListCourses
-                data={courseState.searchResults}
+            <ListTutors
+                data={tutorState.searchResults}
             />
         )
     }

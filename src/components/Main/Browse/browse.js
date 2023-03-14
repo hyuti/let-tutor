@@ -19,7 +19,7 @@ import { DO_GET_ALL_INSTRUCTOR_INSTRUCTOR_ACTION, DoGetInstructorDetail } from '
 import { Status, LoadStatus } from '../../../core/status'
 import CLoadingIndicator from '../../Common/Animations/c_loading_indicator'
 import ListInstructorHor from '../../../components/Author/list_instructor_hor'
-import { DoGetRecommendCourseCourseAction } from '../../../feature/course/actions'
+import { DoGetRecommendTutorTutorAction } from '../../../feature/tutor/actions'
 
 const Browse = ({ }) => {
 
@@ -27,7 +27,7 @@ const Browse = ({ }) => {
 
     const instructorState = useSelector(state => state.instructorState)
 
-    const courseState = useSelector(state => state.courseState)
+    const tutorState = useSelector(state => state.tutorState)
 
     const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const Browse = ({ }) => {
     }
 
     const onRecommendedPressed = () => {
-        dispatch(DoGetRecommendCourseCourseAction(authState.userInfo.id, 1000, 1))
+        dispatch(DoGetRecommendTutorTutorAction(authState.userInfo.id, 1000, 1))
         RootNavigation.navigate(Routes.RecommendedForYouScreen)
     }
 
@@ -69,19 +69,19 @@ const Browse = ({ }) => {
             <HomeAppBar title={i18n.t('browse')} />
             <CScrollView style={Styles.screenContainer} >
                 <CImageButton
-                    uri={Strings.defaultCourseThubnail}
+                    uri={Strings.defaultTutorThubnail}
                     title={i18n.t('new_release').toUpperCase()}
                     height={Sizes.s64}
                     onPress={onNewReleasesPressed} />
                 <SizedBox height={Sizes.s12} />
                 <CImageButton
-                    uri={Strings.defaultCourseThubnail}
+                    uri={Strings.defaultTutorThubnail}
                     title={i18n.t('recommended_for_you').toUpperCase()}
                     height={Sizes.s64}
                     onPress={onRecommendedPressed} />
                 <SizedBox height={Sizes.s12} />
                 <ListCategory
-                    categories={Object.values(courseState.categories)} />
+                    categories={Object.values(tutorState.categories)} />
                 <SizedBox height={Sizes.s12} />
 
                 {

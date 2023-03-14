@@ -13,7 +13,7 @@ import Favourites from '../Favourites/favourites';
 import { ThemeContext } from '../../provider/theme-provider';
 import CIonIcon from '../Common/Icon/c-ion-icon';
 import ScreenContainer from '../Common/Screen/screen-container';
-import MeScreen from './MyCourses/me-screen';
+import MeScreen from './MyTutors/me-screen';
 const Tab = createBottomTabNavigator()
 
 const MainScreen = () => {
@@ -78,7 +78,7 @@ const screenOptions = ({ route }) => ({
                 label = i18n.t('home');
                 break;
             case Routes.MeScreen:
-                label = i18n.t('my_courses');
+                label = i18n.t('my_tutors');
                 break;
             case Routes.Browse:
                 label = i18n.t('browse');

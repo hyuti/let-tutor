@@ -1,8 +1,8 @@
 import { apiClient } from "../../axios-config";
 
-const addFavouriteCourse = (courseId) => {
-    return apiClient.post('user/like-course', {
-        "courseId": courseId
+const addFavouriteTutor = (tutorId) => {
+    return apiClient.post('user/like-tutor', {
+        "tutorId": tutorId
     });
 }
 
@@ -23,7 +23,7 @@ const changePassword = (userId, oldPass, newPass) => {
 }
 
 const UserRepo = {
-    addFavouriteCourse: addFavouriteCourse,
+    addFavouriteTutor: addFavouriteTutor,
     updateBasicProfile: updateBasicProfile,
     changePassword: changePassword,
 }

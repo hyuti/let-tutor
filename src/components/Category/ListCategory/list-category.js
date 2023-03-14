@@ -8,7 +8,7 @@ import NavigationUtils from '../../../routes/navigation-utils'
 import { RootNavigation } from '../../../routes/navigations/root-navigation'
 import Routes from '../../../routes/routes'
 import { useSelector, useDispatch } from 'react-redux'
-import { DoGetCourseByCategoryCourseAction } from '../../../feature/course/actions'
+import { DoGetTutorByCategoryTutorAction } from '../../../feature/tutor/actions'
 
 const ListCategory = ({categories}) => {
 
@@ -25,7 +25,7 @@ const ListCategory = ({categories}) => {
                     height={Sizes.s60} 
                     onPress={
                         () => {
-                            dispatch(DoGetCourseByCategoryCourseAction(item.id))
+                            dispatch(DoGetTutorByCategoryTutorAction(item.id))
                             RootNavigation.push(Routes.CategoryDetailScreen, {
                                 categoryId: item.id,
                             })

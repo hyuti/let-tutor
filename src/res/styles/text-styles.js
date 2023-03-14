@@ -26,7 +26,7 @@ const TextStyles = StyleSheet.create({
         fontSize: Sizes.s24,
         fontWeight: FontWeight.w400
     },
-    courseName: {
+    tutorName: {
         fontSize: Sizes.s28,
         fontWeight: FontWeight.bold,
         letterSpacing: 0.15

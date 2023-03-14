@@ -28,14 +28,14 @@ const Paths = ({ style, headerText, horizontal = true, hasTrailing = true, onTra
                 style={styles.item}
                 image={path.image}
                 name={path.name}
-                coursesCount={path.courseIds.length}
+                tutorsCount={path.tutorIds.length}
                 onPress={() => onItemPressed(path)} />
             :
             <PathItenVer
                 style={styles.item}
                 image={path.image}
                 name={path.name}
-                coursesCount={path.courseIds.length}
+                tutorsCount={path.tutorIds.length}
                 onPress={() => onItemPressed(path)} />
     }
     

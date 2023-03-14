@@ -1,7 +1,7 @@
 import { DO_CLEAR_APPSTATE_AUTH_ACTION } from "../auth/actions";
 import { appState } from "./state";
 import { DO_CLEAR_APPSTATE_APP_ACTION, DO_CHANGE_LANGUAGE_APP_ACTION, SET_CHANGE_LANGUAGE_APP_ACTION } from "./actions";
-import { courseReducer } from "../course/reducer";
+import { tutorReducer } from "../tutor/reducer";
 import { userReducer } from "../user/reducer";
 import { instructorReducer } from "../instructor/reducer";
 import i18n from '../../res/i18n'
@@ -20,7 +20,7 @@ const appReducer = (state, action) => {
         default:
             return {
                 authState: authReducer(state.authState, action),
-                courseState: courseReducer(state.courseState, action),
+                tutorState: tutorReducer(state.tutorState, action),
                 userState: userReducer(state.userState, action),
                 instructorState: instructorReducer(state.instructorState, action)
             }

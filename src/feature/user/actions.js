@@ -1,4 +1,4 @@
-export const DO_ADD_FAVOURITE_COURSE_USER_ACTION = 'DO_ADD_FAVOURITE_USER_ACTION'
+export const DO_ADD_FAVOURITE_TUTOR_USER_ACTION = 'DO_ADD_FAVOURITE_USER_ACTION'
 export const SET_STATUS_USER_ACTION = 'SET_STATUS_USER_ACTION'
 export const DO_UPDATE_BASIC_PROFILE_USER_ACTION = 'DO_UPDATE_BASIC_PROFILE_USER_ACTION'
 export const DO_CHANGE_PASSWORD_USER_ACTION = 'DO_CHANGE_PASSWORD_USER_ACTION'
@@ -25,11 +25,11 @@ export const DoUpdateBasicProfileUserAction = (username, phone, avatar) => {
     }
 }
 
-export const DoAddFavouriteCourseUserAction = (courseId) => {
+export const DoAddFavouriteTutorUserAction = (tutorId) => {
     return {
-        type: DO_ADD_FAVOURITE_COURSE_USER_ACTION,
+        type: DO_ADD_FAVOURITE_TUTOR_USER_ACTION,
         payload: {
-            courseId: courseId
+            tutorId: tutorId
         }
     }
 }

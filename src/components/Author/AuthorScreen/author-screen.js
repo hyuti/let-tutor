@@ -11,7 +11,7 @@ import TextStyles from '../../../res/styles/text-styles'
 import FontWeight from '../../../res/styles/font-weight'
 import CButton from '../../Common/Button/c-button'
 import SizedBox from '../../Common/Container/sized-box'
-import ListCourses from '../../Courses/ListCourses/list-courses'
+import ListTutors from '../../Tutors/ListTutors/list-tutors'
 import CScrollView from '../../Common/Container/c-scroll-view'
 import CAvatar from '../../Common/Image/c-avatar'
 import ScreenContainer from '../../Common/Screen/screen-container'
@@ -21,7 +21,7 @@ import { Status, LoadStatus } from '../../../core/status'
 import CLoadingIndicator from '../../Common/Animations/c_loading_indicator'
 import ErrorBack from '../../Common/error/error_back'
 import { DateFormat } from '../../../utils/date-format'
-import SectionCourses from '../../Courses/SectionCourses/section-courses'
+import SectionTutors from '../../Tutors/SectionTutors/section-tutors'
 import { CRating } from '../../Common/Rating/c-rating'
 import { Text } from 'react-native'
 
@@ -95,11 +95,11 @@ const AuthorScreen = ({ route }) => {
                     </CText>
                     <SizedBox height={Sizes.s16} />
                     <CText style={styles.infoText}>
-                        {`${i18n.t('courses')} ${author.totalCourse}`}
+                        {`${i18n.t('tutors')} ${author.totalTutor}`}
                     </CText>
                     <SizedBox height={Sizes.s16} />
-                    <SectionCourses
-                        data={author.courses}
+                    <SectionTutors
+                        data={author.tutors}
                         hasTrailing={false} />
                 </CScrollView>
             </View>

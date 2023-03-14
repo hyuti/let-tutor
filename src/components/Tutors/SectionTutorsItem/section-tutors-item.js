@@ -1,0 +1,42 @@
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import Sizes from '../../../res/sizes'
+import COpacityButton from '../../Common/Button/c-opacity-button'
+import CCard from '../../Common/Container/c-card'
+import CImage from '../../Common/Image/c-image'
+import SectionTutorItemInfo from './section-tutor-item-info'
+import ContentContainer from '../../Common/Screen/content-container'
+
+const SectionTutorItem = ({ tutor, onPress }) => {
+    return (
+        <ContentContainer>
+            <COpacityButton onPress={onPress}>
+                <CCard>
+                    <View style={{ width: 220, height: 220,borderWidth:Sizes.s1 }}>
+                        <ContentContainer style={{alignItems:"center"}}>
+                            <CImage uri={tutor.imageUrl} style={styles.image} />
+                        </ContentContainer>
+                        <ContentContainer
+                            style={styles.infoContainer}>
+                            <SectionTutorItemInfo tutor={tutor}
+                                simple={false} />
+                        </ContentContainer>
+                    </View>
+                </CCard>
+            </COpacityButton>
+        </ContentContainer>
+    )
+}
+
+export default SectionTutorItem
+
+const styles = StyleSheet.create({
+    image: {
+        height: Sizes.s96,
+        width:Sizes.s96,
+        borderRadius:Sizes.s96/2,
+    },
+    infoContainer: {
+        padding: Sizes.s8,
+    }
+})

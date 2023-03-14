@@ -2,7 +2,7 @@
 import { all, fork, takeEvery, put } from 'redux-saga/effects';
 import { authMiddlewares } from '../auth/middlewares';
 import {redirectAppMiddleware} from '../redirect-app-middleware'
-import { courseMiddleware } from '../course/middlewares';
+import { tutorMiddleware } from '../tutor/middlewares';
 import { redirectAuthMiddleware } from '../redirect-auth-middleware';
 import { userMiddlewares } from '../user/middlewares';
 import { instructorMiddlewares } from '../instructor/middlewares';
@@ -27,7 +27,7 @@ export function* appMiddlewares() {
     yield all([
         fork(authMiddlewares),
         fork(redirectAppMiddleware),
-        fork(courseMiddleware),
+        fork(tutorMiddleware),
         fork(redirectAuthMiddleware),
         fork(userMiddlewares),
         fork(instructorMiddlewares),

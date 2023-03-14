@@ -40,7 +40,7 @@ const ListAuthors = ({ horizontal = false, headerText, chip = false, authorIds }
                         onPress={() => onItemPressed(author)} />) :
                 <ProfileTile
                     title={author.name}
-                    subtitle={`${author.coursesCount} Courses`}
+                    subtitle={`${author.tutorsCount} Tutors`}
                     image={author.avatar}
                     style={styles.authorItem}
                     onPress={() => onItemPressed(author)} />

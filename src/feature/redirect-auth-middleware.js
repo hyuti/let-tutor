@@ -1,7 +1,7 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import { AuthAction } from './auth/actions'
 import { LoadStatus } from '../core/status'
-import { DoGetTotalNumerCoursesCourseAction, DoGetTopNewCourseAction, DoGetTopSellCourseAction, DoGetTopRateCourseAction, DoGetRecommendCourseCourseAction, DoGetAllCategoryCourseAction, DoGetFavouritesCourseAction, DoGetMyCoursesCourseAction } from './course/actions';
+import { DoGetTotalNumerTutorsTutorAction, DoGetTopNewTutorAction, DoGetTopSellTutorAction, DoGetTopRateTutorAction, DoGetRecommendTutorTutorAction, DoGetAllCategoryTutorAction, DoGetFavouritesTutorAction, DoGetMyTutorsTutorAction } from './tutor/actions';
 import { DoGetAllInstructor } from './instructor/actions';
 
 function* onAuthStatusChange(action) {
@@ -11,14 +11,14 @@ function* onAuthStatusChange(action) {
 
             console.log('DEBUG RED', data)
 
-            yield put(DoGetTopNewCourseAction());
-            yield put(DoGetTopSellCourseAction());
-            yield put(DoGetTopRateCourseAction());
+            yield put(DoGetTopNewTutorAction());
+            yield put(DoGetTopSellTutorAction());
+            yield put(DoGetTopRateTutorAction());
             yield put(DoGetAllInstructor());
-            yield put(DoGetRecommendCourseCourseAction(data.userInfo.id));
-            yield put(DoGetAllCategoryCourseAction());
-            yield put(DoGetFavouritesCourseAction());
-            yield put(DoGetMyCoursesCourseAction())
+            yield put(DoGetRecommendTutorTutorAction(data.userInfo.id));
+            yield put(DoGetAllCategoryTutorAction());
+            yield put(DoGetFavouritesTutorAction());
+            yield put(DoGetMyTutorsTutorAction())
         }
     }
 }

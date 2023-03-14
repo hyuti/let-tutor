@@ -1,9 +1,9 @@
 class AuthorModel {
-    constructor(id, name, avatar, coursesCount) {
+    constructor(id, name, avatar, tutorsCount) {
         this.id = id
         this.name = name
         this.avatar = avatar
-        this.coursesCount = coursesCount
+        this.tutorsCount = tutorsCount
     }
 }
 

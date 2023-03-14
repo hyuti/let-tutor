@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import EmptyScreen from '../../Common/Screen/empty-screen'
-import ListCourses from '../../Courses/ListCourses/list-courses'
+import ListTutors from '../../Tutors/ListTutors/list-tutors'
 import Sizes from '../../../res/sizes'
 import Styles from '../../../res/styles/styles'
 import IconName from '../../../res/icon-name'
@@ -10,16 +10,16 @@ import i18n from '../../../res/i18n'
 
 const Downloads = () => {
 
-    const downloadedCourses = []
+    const downloadedTutors = []
 
     const Content = () => {
-        if (downloadedCourses.length == 0)
+        if (downloadedTutors.length == 0)
             return <EmptyScreen
                 uri={IconName.mdCloudDownload}
                 title={i18n.t('no_downloads')}
-                subtitle={i18n.t('courses_you_download_will_appear_here')} />
-        else return <ListCourses
-            data={downloadedCourses}
+                subtitle={i18n.t('tutors_you_download_will_appear_here')} />
+        else return <ListTutors
+            data={downloadedTutors}
             hasTrailing={false} />
     }
 

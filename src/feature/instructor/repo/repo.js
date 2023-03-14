@@ -1,6 +1,6 @@
 import { apiClient } from "../../axios-config";
 
-const getAllInstructor = (courseId) => {
+const getAllInstructor = (tutorId) => {
     return apiClient.get('instructor', {
     });
 }

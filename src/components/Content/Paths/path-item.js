@@ -8,7 +8,7 @@ import CCard from '../../Common/Container/c-card'
 import COpacityButton from '../../Common/Button/c-opacity-button'
 import ContentContainer from '../../Common/Screen/content-container'
 
-const PathItem = ({ style, image, name, coursesCount, onPress }) => {
+const PathItem = ({ style, image, name, tutorsCount, onPress }) => {
     return (
         <ContentContainer style={style}>
             <COpacityButton onPress={onPress}>
@@ -16,7 +16,7 @@ const PathItem = ({ style, image, name, coursesCount, onPress }) => {
                     <CImage uri={image ?? ''} style={styles.image} />
                     <ContentContainer style={styles.body}>
                         <CText data={name} style={TextStyles.subhead} />
-                        <CText data={`${coursesCount} Courses`} style={TextStyles.overline} />
+                        <CText data={`${tutorsCount} Tutors`} style={TextStyles.overline} />
                     </ContentContainer>
                 </CCard>
             </COpacityButton>
