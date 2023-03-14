@@ -14,43 +14,52 @@ import CChip from '../../Common/Container/c-chip'
 import i18n from '../../../res/i18n'
 
 const SectionCourseItemInfo = ({ course, simple = false, authorChip = false }) => {
+    const tutorName=()=>{
+        return "NameTutor"
+    }
+    const tutorCountry=()=>{
+        return "TutorCountry"
+    }
+    const tutorTags=()=>{
+        tags=new Array("tag1","tag2","tag3","tag3","tag3","tag3")
+        return tags 
+    }
+    const tutorDesc=()=>{
+        return "Lorem ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum"
+    }
+    const buildTutorTags=()=>{
+        tags=tutorTags()
+        return tags.map(e=>{
+            return <View>
+                <CChip
+                    title={e} />
+                <SizedBox width={Sizes.s4} />
+            </View> 
+        })
+    }
     return (
         <ContentContainer style={styles.container}>
-            <CText data={course.title ?? course.courseTitle} style={TextStyles.subhead} />
+            <CText data={tutorName()} style={TextStyles.subhead} />
             <SizedBox height={Sizes.s2} />
             {
                 !simple &&
                 <View>
                     <SizedBox height={Sizes.s4} />
-                    <CChip title={`${course['instructor.user.name'] ?? course.instructor?.name ?? course.instructorName ?? ''}`} />
+                    <CChip title={tutorCountry()} />
                     <SizedBox height={Sizes.s4} />
                 </View>
             }
 
             <SizedBox height={Sizes.s2} />
             <View style={styles.row}>
-                <CText data={course.level} style={TextStyles.caption} />
+                <CText data={tutorDesc()} style={TextStyles.caption} numberOfLines={3} />
                 <SizedBox width={Sizes.s4} />
-                <CText data={DateFormat.toMdy(course.date)} style={TextStyles.caption} />
-                <SizedBox width={Sizes.s4} />
-                <CText data={`${course.totalHours} hours`} style={TextStyles.caption} />
             </View>
             <SizedBox height={Sizes.s8} />
             {
                 !simple &&
                 <View style={styles.row}>
-                    <CChip
-                        leadingText={`${course.soldNumber ?? 0}`}
-                        title={i18n.t('sold')} />
-                    <SizedBox width={Sizes.s4} />
-                    <CChip
-                        leadingText={`${course.ratedNumber ?? 0}`}
-                        title={i18n.t('rated')} />
-                    <SizedBox width={Sizes.s4} />
-                    <CChip
-                        leadingText={`${course.totalHours ?? 0}`.substr(0, 3)}
-                        title={i18n.t('hours')} />
-                    <SizedBox width={Sizes.s4} />
+                    {buildTutorTags()}
                 </View>
             }
         </ContentContainer>
@@ -64,6 +73,7 @@ const styles = StyleSheet.create({
         alignItems: Alignment.flexStart,
     },
     row: {
-        flexDirection: FlexDirection.row
+        flexDirection: FlexDirection.row,
+        flexWrap:"wrap"
     }
 })

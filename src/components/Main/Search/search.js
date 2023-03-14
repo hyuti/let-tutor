@@ -14,6 +14,11 @@ import { DO_SEARCH_COURSE_COURSE_ACTION, DoSearchCourseCourseAction } from '../.
 import CLoadingIndicator from '../../Common/Animations/c_loading_indicator'
 import ErrorText from '../../Common/error/error-text'
 import ListCourses from '../../Courses/ListCourses/list-courses'
+import { Dropdown } from 'react-native-material-dropdown-v2'
+import Colors from '../../../res/colors'
+import { View } from 'react-native'
+import CChip from '../../Common/Container/c-chip'
+import SizedBox from '../../Common/Container/sized-box'
 
 
 const Search = () => {
@@ -21,6 +26,8 @@ const Search = () => {
     const dispatch = useDispatch();
     const [searchStatus, setSearchStatus] = useState(Status.idle())
     const [currentKeyword, setCurrentKeyword] = useState('')
+    const [openCalendar,setOpenCalendar]=useState(false)
+    const [curDate,setCurDate]=useState(new Date().toString())
 
     useEffect(() => {
         setSearchStatus(courseState.status[DO_SEARCH_COURSE_COURSE_ACTION])
@@ -58,6 +65,20 @@ const Search = () => {
             />
         )
     }
+    const tutorTags=()=>{
+        tags=new Array("tag1","tag2","tag3","tag3","tag3","tag3")
+        return tags 
+    }
+    const buildTutorTags=()=>{
+        tags=tutorTags()
+        return tags.map(e=>{
+            return <View>
+                <CChip
+                    title={e} />
+                <SizedBox width={Sizes.s8} />
+            </View> 
+        })
+    }
 
     return (
         <ScreenContainer style={Styles.fullScreen}>
@@ -67,6 +88,24 @@ const Search = () => {
                         setCurrentKeyword(value)
                     }}
                     onPressDone={onPressDone} />
+                <Dropdown
+                    data={[
+                        {
+                            "value":"Foreign tutor",
+                            "code":"foreign-tutor"
+                        },
+                        {
+                            "value":"Vietnamese tutor",
+                            "code":"vietnamese-tutor"
+                        },
+                    ]}
+                    value={"Foreign tutor"}
+                    textColor={Colors.black}
+                    baseColor={Colors.white}
+                />
+                <View style={{flexDirection:"row"}}>
+                    {buildTutorTags()}
+                </View>
             </CCard>
             {build()}
             {/* {searching == undefined ? buildInit() : (searching === true ? buildSuggestion() : buildResult())} */}

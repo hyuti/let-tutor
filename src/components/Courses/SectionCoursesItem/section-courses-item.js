@@ -12,7 +12,7 @@ const SectionCourseItem = ({ course, onPress }) => {
         <ContentContainer>
             <COpacityButton onPress={onPress}>
                 <CCard>
-                    <View style={{ width: 260, height: 220 }}>
+                    <View style={{ width: 220, height: 220,borderWidth:Sizes.s1 }}>
                         <ContentContainer style={{alignItems:"center"}}>
                             <CImage uri={course.imageUrl} style={styles.image} />
                         </ContentContainer>

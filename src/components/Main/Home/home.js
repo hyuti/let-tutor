@@ -88,5 +88,6 @@ const styles = StyleSheet.create({
     },
     sectionCourses: {
         padding: Sizes.s8,
+        height:260
     },
 })

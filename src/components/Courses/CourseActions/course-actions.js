@@ -26,32 +26,19 @@ const Item = ({ bottomText, icon, onPress }) => {
 }
 
 const CourseActions = ({ style, courseId }) => {
-
     const [addFavouriteStatus, setAddFavouriteStatus] = useState(Status.idle())
-
     const courseState = useSelector(state => state.courseState)
-
     const userState = useSelector(state => state.userState)
-
     const dispatch = useDispatch();
-
     const [favourite, setFavourite] = useState(false)
-
     const myCourses = courseState.myCourses
-
     const [alreadyBuy, setAlreadyBuy] = useState(false)
-
     useEffect(() => {
-
         setAddFavouriteStatus(userState.status[`${DO_ADD_FAVOURITE_COURSE_USER_ACTION}${courseId}`])
-
         courseState.favouriteCourses.forEach((value) => {
             if (value.id === courseId) setFavourite(true)
         })
-
-        return () => {
-            //cleanup
-        }
+        return () => {}
     }, [userState, courseState])
 
     useEffect(() => {
@@ -79,11 +66,8 @@ const CourseActions = ({ style, courseId }) => {
                 onPress={() => onPressFavourite()} />
             <Item
                 icon={IconName.iosRadio}
-                bottomText={alreadyBuy ? i18n.t('bought') : i18n.t('get')}
+                bottomText={alreadyBuy ? "Book" : "Booked"}
                 onPress={onPressGet} />
-            <Item
-                icon={IconName.mdCloudDownload}
-                bottomText={i18n.t('download')} />
         </View>
     )
 }
