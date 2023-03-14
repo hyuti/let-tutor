@@ -6,20 +6,14 @@ import Sizes from '../../../res/sizes';
 import Routes from '../../../routes/routes';
 import { RootNavigation } from '../../../routes/navigations/root-navigation';
 import i18n from '../../../res/i18n';
-import { CoursesContext } from '../../../provider/courses-provider';
 import { useSelector, useDispatch } from 'react-redux'
 import { DoGetCourseDetailCourseAction, SetCurrentCourseIdCourseAction, SetAddContinuesLearningCourseAction } from '../../../feature/course/actions';
 
 export const SectionCoursesByIds = ({ style, headerText, courseIds }) => {
-
     const authState = useSelector(state => state.authState)
-
     const courseState = useSelector(state => state.courseState)
-
     var allCourses = courseState.courses;
-
     const dispatch = useDispatch();
-
     const onTrailingPressed = () => {
         RootNavigation.navigate(Routes.ListCoursesByTypeScreen, {
             title: headerText,

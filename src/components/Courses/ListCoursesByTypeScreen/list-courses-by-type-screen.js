@@ -7,15 +7,11 @@ import TextStyles from '../../../res/styles/text-styles'
 import { ListCoursesByIds } from '../ListCourses/list-courses'
 import SizedBox from '../../Common/Container/sized-box'
 import Sizes from '../../../res/sizes'
-import { CoursesContext } from '../../../provider/courses-provider'
 import { ScreenContainer } from 'react-native-screens'
 import ContentContainer from '../../Common/Screen/content-container'
 
 const ListCoursesByTypeScreen = ({ route }) => {
     const params = route.params
-
-    const coursesState = useContext(CoursesContext)
-
     return (
         <ScreenContainer style={Styles.fullScreen}>
             <CAppBar />

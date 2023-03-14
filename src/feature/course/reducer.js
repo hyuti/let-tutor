@@ -1,5 +1,5 @@
 import {
-    DO_GET_TOTAL_NUMER_COURSES_COURSE_ACTION, SET_STATUS_COURSE_ACTION, SET_ADD_COURSE_ACTION, SET_ADD_TOP_NEW_COURSE_ACTION, SET_ADD_TOP_SELL_COURSE_ACTION, SET_ADD_TOP_RATE_COURSE_ACTION, SET_ADD_RECOMMEND_COURSE_ACTION, SET_ADD_CATEGORY_COURSE_ACTION, SET_COURSE_BY_CATEGORY_COURSE_ACTION,
+    SET_STATUS_COURSE_ACTION, SET_ADD_COURSE_ACTION, SET_ADD_TOP_NEW_COURSE_ACTION, SET_ADD_TOP_SELL_COURSE_ACTION, SET_ADD_TOP_RATE_COURSE_ACTION, SET_ADD_RECOMMEND_COURSE_ACTION, SET_ADD_CATEGORY_COURSE_ACTION, SET_COURSE_BY_CATEGORY_COURSE_ACTION,
     SET_SEARCH_RESULTS_COURSE_ACTION,
     SET_FAVOURITES_COURSE_ACTION,
     SET_CURRENT_COURSE_ID_COURSE_ACTION,
@@ -8,17 +8,20 @@ import {
     SET_CURRENT_VIDEO_MP4_COURSE_ACTION
 } from "./actions";
 import USE_API from "../../core/fake-api/config"
-import { newCourses,coursesData } from "../../data/mock/courses-mock-data"
+import { newCourses,coursesDataNotMapObj,favCourses } from "../../data/mock/courses-mock-data"
 
 export const courseReducer = (courseState, action) => {
     if (!USE_API){
         return {
             ...courseState,
-            courses:coursesData,
+            courses:coursesDataNotMapObj,
             topNewCourses:newCourses,
             topSellCourses: newCourses,
             topRateCourses: newCourses,
             recommendCourses: newCourses,
+            favouriteCourses: favCourses,
+            myCourses:coursesDataNotMapObj,
+            searchResults:favCourses,
         }
     }
     switch (action.type) {

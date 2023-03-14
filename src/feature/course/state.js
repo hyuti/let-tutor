@@ -1,5 +1,4 @@
 import { Status } from '../../core/status'
-import { newCourses,coursesData } from "../../data/mock/courses-mock-data"
 
 const courseState = () => {
     return {

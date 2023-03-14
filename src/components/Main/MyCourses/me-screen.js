@@ -14,9 +14,7 @@ const Tab = createMaterialTopTabNavigator()
 
 export default function MeScreen() {
     const themeContext = useContext(ThemeContext)
-
     const theme = themeContext.theme
-
     return (
         <ContentContainer style={{backgroundColor: 'white'}}>
             <HomeAppBar title={i18n.t('favourites')} ></HomeAppBar>

@@ -36,11 +36,8 @@ export const FavouriteCourseList = ({ courses }) => {
 }
 
 const FavouriteCoursesItem = ({ style, course }) => {
-
     const dispatch =  useDispatch()
-
     const authState = useSelector(state => state.authState)
-
  
     const onPress = (course) => {
         dispatch(SetCurrentCourseIdCourseAction(course.id))

@@ -24,40 +24,23 @@ import CFlatButton from '../../Common/Button/c-flat-button'
 import { ActivityIndicator } from 'react-native-paper'
 
 const Home = ({ props }) => {
-
     const courseState = useSelector(state => state.courseState)
-
-
     const dispatch = useDispatch();
-
     const [topNewStatus, setTopNewStatus] = useState(Status.idle())
-
     const [recommendCoursesStatus, setRecommendCoursesStatus] = useState(Status.idle())
-
     const [topSellStatus, setTopSellStatus] = useState(Status.idle())
-
     const [topRateStatus, setTopRateStatus] = useState(Status.idle())
 
-
     useEffect(() => {
-
         setTopNewStatus(courseState.status[DO_GET_TOP_NEW_COURSE_ACTION])
-
         setRecommendCoursesStatus(courseState.status[DO_GET_RECOMMEND_COURSE_COURSE_ACTION])
-
         setTopSellStatus(courseState.status[DO_GET_TOP_SELL_COURSE_ACTION])
-
         setTopRateStatus(courseState.status[DO_GET_TOP_RATE_COURSE_ACTION])
-
-        return () => {
-            //cleanup
-        }
+        return () => {}
     }, [courseState])
-
     const onNewReleasesPressed = () => {
         RootNavigation.navigate(Routes.NewReleasesScreen)
     }
-
     const buildSectionCourses = (title, courseIds, loadStatus) => {
         return (
             courseIds.length == 0 ?
@@ -70,7 +53,6 @@ const Home = ({ props }) => {
                         style={styles.sectionCourses} />
         )
     }
-
     const buildContinueLearning = (title, courseIds) => {
         return (
             courseIds.length == 0 ?
@@ -81,7 +63,6 @@ const Home = ({ props }) => {
                     style={styles.sectionCourses} />
         )
     }
-
     return (
         <ContentContainer style={Styles.fullScreen}>
             <HomeAppBar title={i18n.t('home')} hasBack={false} />

@@ -1,7 +1,7 @@
-import { data } from './courses-mock-data'
+import { coursesData } from './courses-mock-data'
 import { DataType } from '../../core/data/data-type'
 
-const allCourse = Array.from(data.keys())
+const allCourse = Array.from(coursesData.keys())
 
 const pathsData = new Map(Array(60).fill(1).map(
     (value, index) => {

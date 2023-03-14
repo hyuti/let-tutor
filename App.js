@@ -28,6 +28,9 @@ import { AppProvider } from './src/provider/app-provider';
 import CategoryDetailScreen from './src/components/Category/CategoryDetails/category-detail-screen';
 import RecommendedForYouScreen from './src/components/Content/NewReleases/recommended-for-you-screen';
 import ChangePasswordScreen from './src/components/Account/Profile/change-password-screen';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens(false)
 
 const Stack = createStackNavigator()
 

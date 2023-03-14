@@ -98,17 +98,17 @@ const Profile = () => {
                     <SizedBox height={'20%'} />
                     {error != undefined && error.length > 0 && <ErrorText text={error} />}
                     <SizedBox height={Sizes.s32} />
-                    <CButton
+                    {/* <CButton
                         //loading={logoutStatus?.loadStatus == LoadStatus.loading}
                         title={i18n.t('change_password')}
                         //color={Colors.grey200}
-                        onPress={onChangePasswordPressed} />
+                        onPress={onChangePasswordPressed} /> */}
                     <SizedBox height={Sizes.s16} />
-                    <CButton
+                    {/* <CButton
                         loading={logoutStatus?.loadStatus == LoadStatus.loading}
                         title={i18n.t('sign_out')}
                         color={Colors.grey200}
-                        onPress={onSignOutPressed} />
+                        onPress={onSignOutPressed} /> */}
                 </CScrollView>
             </ScreenContainer>
 

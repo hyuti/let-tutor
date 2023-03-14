@@ -9,35 +9,24 @@ import { Status } from '../../../core/status'
 import { DO_ADD_FAVOURITE_COURSE_USER_ACTION, DoAddFavouriteCourseUserAction } from '../../../feature/user/actions'
 
 const CourseActionsMenuButton = ({ courseId }) => {
-
     const [addFavouriteStatus, setAddFavouriteStatus] = useState(Status.idle())
-
     const courseState = useSelector(state => state.courseState)
-
     const userState = useSelector(state => state.userState)
-
     const dispatch = useDispatch();
-
     const [favourite, setFavourite] = useState(false)
 
-
     useEffect(() => {
-
         setAddFavouriteStatus(userState.status[`${DO_ADD_FAVOURITE_COURSE_USER_ACTION}${courseId}`])
-
         courseState.favouriteCourses.forEach((value) => {
             if (value.id === courseId) setFavourite(true)
         })
-
         return () => {
-            //cleanup
         }
     }, [userState, courseState])
 
     const onPressFavourite = () => {
         dispatch(DoAddFavouriteCourseUserAction(courseId))
     }
-
 
     return (
         <MenuButton

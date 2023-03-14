@@ -9,7 +9,6 @@ import Colors from '../../../res/colors'
 import ScreenContainer from '../../Common/Screen/screen-container'
 
 export default function MyCoursesTab() {
-
     const courseState = useSelector(state => state.courseState)
 
     return (

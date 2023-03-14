@@ -52,13 +52,8 @@ export const ListCoursesByIds = ({ style, headerText, hasTrailing = false, data 
 }
 
 const ListCourses = ({ style, headerText, hasTrailing = false, data }) => {
-
-    const courseState = useSelector(state => state.courseState)
-
     const authState = useSelector(state => state.authState)
-
     const dispatch = useDispatch();
-
 
     const onPress = (course) => {
         dispatch(SetCurrentCourseIdCourseAction(course.id))
@@ -90,13 +85,8 @@ const ListCourses = ({ style, headerText, hasTrailing = false, data }) => {
 }
 
 export const ListMyCourses = ({ style, headerText, hasTrailing = false, data }) => {
-
-    const courseState = useSelector(state => state.courseState)
-
     const authState = useSelector(state => state.authState)
-
     const dispatch = useDispatch();
-
 
     const onPress = (course) => {
         dispatch(SetCurrentCourseIdCourseAction(course.id))

@@ -18,15 +18,12 @@ import BackButton from '../Button/back-button'
 
 const HomeAppBar = ({ title, hasBack = false }) => {
     const iconSize = Sizes.s24
-
     const onProfilePressed = () => {
         RootNavigation.navigate(Routes.Profile)
     }
-
     const onSettingsPressed = () => {
         RootNavigation.navigate(Routes.Settings)
     }
-
     const onFeedbackPressed= () => {
         RootNavigation.navigate(Routes.SendFeedbackScreen)
     }
